@@ -1,0 +1,42 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+    {% load static %}
+
+<title>My_page</title>
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>message</h2>
+              <p>마이페이지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'my_page' %}">my_page</a></li>
+            <li>message</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- new_message.html -->
+    <div class="blog posts-list">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">전송</button>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

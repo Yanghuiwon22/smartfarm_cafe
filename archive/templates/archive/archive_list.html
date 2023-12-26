@@ -1,0 +1,83 @@
+{% extends 'single_pages/layout.html' %}
+
+{% block content %}
+
+    {% load static %}
+
+    <title>Archive List</title>
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>Archive</h2>
+                            <p>선배들의 자료가 보고싶으신가요? 아니면 사람들과 공유하고 싶은 자료가 있나요? 여기가 바로 여러분을 위한 공간입니다!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'smartfarm_landing' %}">SmartFarm</a></li>
+                        <li>Archive</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+
+        <section id="blog" class="blog">
+
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+
+                    <!-- 자료 등록하기 버튼 -->
+                 <div style="padding-bottom: 20px;">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="pricing pricing-item">
+                            <a href="{% url 'archive_register_form' %}" class="buy-btn">자료 등록하기</a>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
+                                <thead>
+                                <tr>
+                                    <th style="background-color:#eeeeee; text-align:center;">번호</th>
+                                    <th style="background-color:#eeeeee; text-align:center;">제목</th>
+                                    <th style="background-color:#eeeeee; text-align:center;">작성자 </th>
+                                    <th style="background-color:#eeeeee; text-align:center;">작성일</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in object_list %}
+                                    <tr>
+                                        <td>{{ item.pk }}</td>
+                                        <td><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></td>
+                                        <td>{{ item.writer }}</td>
+                                        <td>{{ item.created_at }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+{#                            <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>#}
+                        </div>
+                    </div>
+                </div><!-- End blog posts list -->
+            </div>
+        </section><!-- End Blog Section -->
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="single_pages/static/js/main.js"></script>
+    </main><!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+
+    {% load static %}
+
+    <title>bookstore list</title>
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>Bookstore</h2>
+                            <p>필요한 책이 있으신가요? 아니면 이제는 필요없어진 책이 있나요? 여기가 바로 여러분을 위한 공간입니다!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'smartfarm_landing' %}">SmartFarm</a></li>
+                        <li>bookstore</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="pricing pricing-item">
+                            <a href="{% url 'bookstore_list' %}" class="buy-btn">목록으로 돌아가기</a></a>
+                        </div>
+                    </div>
+                    <h2> 판매되었습니다.</h2>
+                </div>
+            </div>
+        </section><!-- End Blog Section -->
+    </main><!-- End #main -->
+
+{% endblock %}

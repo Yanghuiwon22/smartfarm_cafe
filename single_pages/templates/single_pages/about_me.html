@@ -1,0 +1,68 @@
+{% extends './layout.html' %}
+{% block content %}
+<title>ABOUT</title>
+
+<h1> 전북대학교 스마트팜학과란?</h1>
+<h2>교수진</h2>
+<h3>김태곤, 이준우, 윤경담</h3>
+
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+
+    <title>학생회 조직도</title>
+</head>
+<body>
+    <div class="organization-chart">
+        <div class="department">
+            <h2>학생회</h2>
+            <div class="member">회장: 홍길동</div>
+            <div class="member">부회장: 김영희</div>
+        </div>
+
+        <div class="department">
+            <h3>운영부</h3>
+            <div class="member">부부장: 이철수</div>
+            <div class="member">운영자1: 박지영</div>
+            <div class="member">운영자2: 정민우</div>
+        </div>
+
+        <div class="department">
+            <h3>홍보부</h3>
+            <div class="member">부부장: 최영미</div>
+            <div class="member">홍보자1: 강호진</div>
+            <div class="member">홍보자2: 신지수</div>
+        </div>
+
+        <!-- 추가적인 부서 및 구성원을 계속해서 추가할 수 있습니다. -->
+    </div>
+</body>
+
+{% endblock %}
+
+
+    <style>
+        /* 스타일을 추가할 수 있습니다. */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .organization-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .department {
+            margin: 20px;
+        }
+
+        .member {
+            margin: 10px;
+        }
+    </style>

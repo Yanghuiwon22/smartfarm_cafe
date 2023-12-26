@@ -1,0 +1,152 @@
+<style>
+    /* Add your existing style definitions here */
+
+    /* Customize form fields */
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style labels */
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    /* Style submit button */
+    button[type="submit"] {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+        border-radius: 4px;
+    }
+
+    /* Additional styling for form groups */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    .form-group select {
+        width: 100%;
+    }
+
+    /* Title, Publisher, Author, Price set, Price */
+    .form-group.title-container {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    /* Content */
+    .form-group.price_set-container {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+        /* img_file */
+    .form-group.img-container {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+
+
+
+        /* Traces, Status container */
+    .form-group.traces-status-container {
+        background-color: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+
+</style>
+
+<!-- Your existing HTML code -->
+{% extends 'single_pages/layout.html' %}
+{% load static %}
+
+{% block content %}
+        <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>reserve meal register</h2>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'reserve_main' %}">reserve meal</a></li>
+            <li>reserve meal register</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <div class="blog">
+    <div class="blog-details">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.timetable.id_for_label }}">
+                    시간표를 등록해주세요 (사진)<br>
+                </label> {{ form.timetable }}<br>
+
+                <hr/>
+                <label for="{{ form.receiver.id_for_label }}">
+                    보낼사람을 선택해주세요<br>
+                </label> {{ form.receiver }}
+
+                <hr/>
+                <label for="{{ form.content.id_for_label }}">
+                    하고 싶은 말을 입력해주세요<br>
+                </label> {{ form.content }}
+
+                <hr/>
+                <button type="submit">제출</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+{% endblock %}

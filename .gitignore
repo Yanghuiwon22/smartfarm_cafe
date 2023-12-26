@@ -1,0 +1,10 @@
+﻿.idea
+softeng_2023_prj/db.sqlite3
+*.sqlite3
+venv
+_media
+migrations
+Impact
+__pycache__
+
+__pycache__

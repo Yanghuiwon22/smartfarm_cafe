@@ -1,0 +1,64 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+
+    {% load static %}
+
+    <title>bookstore list</title>
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>밥약</h2>
+                            <p>같이 밥 먹고 친해지고싶은 선배가 있나요?<br>편하게 연락해보세요!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'smartfarm_landing' %}">SmartFarm</a></li>
+                        <li>bookstore</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    {#      책 등록하기 버튼#}
+                    <div class="reserve-meal-list-menu" style="display: flex">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-right: 10px">
+                            <div class="pricing pricing-item">
+                                <a href="{% url 'reserve_regi' %}" class="buy-btn" >지정하여 신청하기</a>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="pricing pricing-item">
+                                <a href="{% url 'reserve_regi_secret' %}" class="buy-btn">익명으로 신청하기</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-md">
+                        <article>
+
+                        </article>
+                        {#                            </div>#}
+                    </div>
+                    </div><!-- End blog posts list -->
+                </div>
+            </div>
+        </section><!-- End Blog Section -->
+
+    </main><!-- End #main -->
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+
+    {% load static %}
+    <title>My_page</title>
+
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>message</h2>
+                            <p>마이페이지</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'my_page' %}">my_page</a></li>
+                        <li>message</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    {# 쪽지보내기 버튼 #}
+                    <div class="messaging-select"
+                         style="display: flex; justify-content: space-between; padding-bottom: 20px">
+                        <div class="messaging-select-left" style="display: flex;">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-right: 10px">
+                                <div class="pricing pricing-item">
+                                    <a href="{% url 'message_list' %}" class="buy-btn">쪽지</a>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <div class="pricing pricing-item">
+                                    <a href="{% url 'reserve_list' %}" class="buy-btn">밥약</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="messaging-select-right d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="pricing pricing-item">
+                                <a href="{% url 'new_message' %}" class="buy-btn">쪽지보내기</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% regroup all_messages|dictsortreversed:'timestamp' by user as all_messages_group %}
+
+                    {# 쪽지 기능 #}
+                    {% for group in all_messages_group %}
+                        {% for message in group.list %}
+                            {% for user in all_users %}
+                                {% if not user == message.receiver and not user == message.sender %}
+                                {% else %}
+                                    <div class="posts-list">
+                                        <article>
+                                            <div class="fist-list"
+                                                 style="display: flex; justify-content: space-between;">
+                                                <div style="display: flex">
+                                                    <p class="title"><a
+                                                            href="/messaging/{{ user.id }}/">{{ user }}</a>
+                                                    </p>
+                                                    {% if message.sender == request.user %}
+                                                        <p>sent</p>
+                                                    {% elif message.receiver == request.user %}
+                                                        <p>received</p>
+                                                    {% endif %}
+                                                </div>
+                                                <p>{{ message.timestamp }}</p>
+                                            </div>
+                                            {% if request.user in  message.sender or message.receiver %}
+                                                <p>{{ message.content }}</p>
+                                            {% endif %}
+                                        </article>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

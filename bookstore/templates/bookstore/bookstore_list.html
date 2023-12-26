@@ -1,0 +1,74 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+
+    {% load static %}
+
+    <title>bookstore list</title>
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>Bookstore</h2>
+                            <p>필요한 책이 있으신가요? 아니면 이제는 필요없어진 책이 있나요? 여기가 바로 여러분을 위한 공간입니다!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'smartfarm_landing' %}">SmartFarm</a></li>
+                        <li>bookstore</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+
+                    {#      책 등록하기 버튼#}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="pricing pricing-item">
+                            <a href="{% url 'bookstore_register_form' %}" class="buy-btn">책 등록하기</a>
+                        </div>
+                    </div>
+
+                    <div class="row gy-4 posts-list">
+                        {% for item in object_list %}
+                            <div class="col-xl-4 col-md-6">
+                                <article>
+                                    <div class="post-img">
+                                        <img src="{{ item.img_file.url }}" alt class="img-fluid">
+                                    </div>
+
+                                    <h2 class="title">
+                                        <div><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+                                    </h2>
+
+                                    <div>
+                                        <p>{{ item.author }}</p>
+                                        <p>{{ item.publisher }}</p>
+                                        <span class="price">{{ item.price }}원</span>
+                                        <span class="price-set">{{ item.price_set }}원</span>
+                                    </div>
+                                </article>
+                                {#                            </div>#}
+                            </div><!-- End post list item -->
+                        {% endfor %}
+                    </div><!-- End blog posts list -->
+                </div>
+            </div>
+        </section><!-- End Blog Section -->
+
+    </main><!-- End #main -->
+
+{% endblock %}

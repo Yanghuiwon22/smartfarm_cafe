@@ -1,0 +1,966 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+
+    {% load static %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero">
+    <div class="container position-relative">
+      <div class="row gy-5" data-aos="fade-in">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+          <h2>Welcome to <span>SmartFarm</span></h2>
+          <p>도전정신과 순수한 열정을 가진 사람이라면 우리 학과에서 자신의 꿈을 활짝 펼 수 있을 것입니다.</p>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+{#            <a href="#about" class="btn-get-started">Get Started</a>#}
+            <a href="https://youtu.be/Ni8pdgXhX7g?si=yTtM_pJSVuDQ9L2m" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <img src="{% static 'img/logo.png'%}" class="img-fluid aos-init aos-animate" alt data-aos="zoom-out" data-aos-delay="100">
+        </div>
+      </div>
+    </div>
+
+    <div class="icon-boxes position-relative">
+      <div class="container position-relative">
+        <div class="row gy-4 mt-5">
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box"><a href="https://youtu.be/jmUN9W05wD8?si=erN3KjTw0c0HMufI" class="glightbox">
+{#              <div class="icon"><i class="bi bi-easel"></i></div>#}
+{#              <h4 class="title"><a href="https://youtu.be/jmUN9W05wD8?si=un3_mtCBduYOplmE" class="stretched-link">디지털농업</a></h4>#}
+                <div class="icon"><i class="bi bi-play-circle"></i></div>
+                <h4 class="title"><a href="https://youtu.be/jmUN9W05wD8?si=erN3KjTw0c0HMufI" class="glightbox">디지털농업</a></h4></a>
+{#                <a href="https://youtu.be/Ni8pdgXhX7g?si=yTtM_pJSVuDQ9L2m" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>#}
+            </div>
+          </div><!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box"><a href="https://youtu.be/OzGudoy7keA?si=AUuzd-UQ6vOwBwI3" class="glightbox">
+              <div class="icon"><i class="bi bi-play-circle"></i></div>
+              <h4 class="title"><a href="https://youtu.be/OzGudoy7keA?si=AUuzd-UQ6vOwBwI3" class="glightbox">작물 생산</a></h4></a>
+            </div>
+          </div><!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box"><a href="https://youtu.be/rIYdglp-bok?si=jpbOTYJBlEKo-Bn2" class="glightbox">
+              <div class="icon"><i class="bi bi-play-circle"></i></div>
+{#              <h4 class="title"><a href="https://youtu.be/rIYdglp-bok?si=fa65FpDp7nNZwtq5" class="stretched-link">작물모델링</a></h4>#}
+                <h4 class="title"><a href="https://youtu.be/rIYdglp-bok?si=jpbOTYJBlEKo-Bn2" class="glightbox">작물모델링</a></h4></a>
+            </div>
+          </div><!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box"><a href="https://youtu.be/6GvPD7cyH3k?si=pLN5jqrECr4_E2ff" class="glightbox">
+              <div class="icon"><i class="bi bi-play-circle"></i></div>
+{#              <h4 class="title"><a href="https://youtu.be/rIYdglp-bok?si=fa65FpDp7nNZwtq5" class="stretched-link">작물모델링</a></h4>#}
+                <h4 class="title"><a href="https://youtu.be/6GvPD7cyH3k?si=pLN5jqrECr4_E2ff" class="glightbox">환경조절</a></h4></a>
+            </div>
+          </div><!--End Icon Box -->
+
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+  <!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+{#    <section id="about" class="about">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>About Us</h2>#}
+{#          <p>앞으로의 식량을 책임질 '스마트팜학과'입니다</p>#}
+{#        </div>#}
+{##}
+{#        <div class="row gy-4">#}
+{#          <div class="col-lg-6">#}
+{#            <h3>도전정신과 순수한 열정을 가진 사람이라면 우리 학과에서 자신의 꿈을 활짝 펼 수 있을 것입니다.</h3>#}
+{#            <img src="static/img/logo.png" class="img-fluid rounded-4 mb-4" alt="">#}
+{#            <p>우리 스마트팜학과는 2021년에 신설된 첨단학과로 국내외 신성장 산업인 미래 농업과 ICT, 빅데이터, 인공지능 등 4차 산업혁명 기술이 융합된 스마트팜 분야에 현장 맞춤형 전문인력 양성을 교육목표로 설립되었습니다. 그리고 우리 학과는 농업, 생명, 환경, 공학을 결합한 미래 지향적 농생명 관련 첨단 융복합 연구를 수행하게 됩니다.</p>#}
+{#              <p>4차 산업혁명에 따라 농생명 산업의 최적화 달성이 가능해졌으며, 다국적기업인 ‘바이엘(Bayer)’은 ‘몬산토’를 인수하며 「디지털 농업」의 선두 주자로 ‘미래농업의 Google’로 비상하고 있습니다. 우리 학과는 이러한 시대적 흐름에 맞게 스마트팜 분야 전반에 관한 이론과 실제를 배우고, 이를 공학적인 접근방법을 통하여 학술이론과 현장기술의 적응능력을 두루 갖춘 우수한 전문 인력을 양성하기 위해 교육과 연구에 매진하고 있습니다.</p>#}
+{#          </div>#}
+{#          <div class="col-lg-6">#}
+{#            <div class="content ps-0 ps-lg-5">#}
+{#              <p class="fst-italic">#}
+{#                우리 학과의 졸업생들은 이러한 과정을 거쳐 스마트팜 전 분야에서 선도적인 역할을 할 것으로 생각합니다. 도전정신과 순수한 열정을 가진 사람이라면 우리 학과에서 자신의 꿈을 활짝 펼 수 있을 것입니다.#}
+{#              </p>#}
+{#              <ul>#}
+{#                <li><i class="bi bi-check-circle-fill"></i> 4차산업혁명 기술이 융합된 스마트팜 </li>#}
+{#                <li><i class="bi bi-check-circle-fill"></i> 공학적인 접근방법 </li>#}
+{#                <li><i class="bi bi-check-circle-fill"></i> 현장기술의 적응능력 </li>#}
+{#              </ul>#}
+{#              <p>#}
+{#                앞으로의 식량 안보를 책임질 여러분들을 환영합니다.#}
+{#              </p>#}
+{##}
+{#              <div class="position-relative mt-4">#}
+{#                <img src="static/img/about-2.jpg" class="img-fluid rounded-4" alt="">#}
+{#                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End About Us Section -->#}
+
+    <!-- ======= Clients Section ======= -->
+{#    <section id="clients" class="clients">#}
+{#      <div class="container" data-aos="zoom-out">#}
+{##}
+{#        <div class="clients-slider swiper">#}
+{#          <div class="swiper-wrapper align-items-center">#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-1.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-2.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-3.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-4.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-5.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-6.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-7.png" class="img-fluid" alt=""></div>#}
+{#            <div class="swiper-slide"><img src="static/img/clients/client-8.png" class="img-fluid" alt=""></div>#}
+{#          </div>#}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Clients Section -->#}
+
+{#    <!-- ======= Stats Counter Section ======= -->#}
+{#    <section id="stats-counter" class="stats-counter">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="row gy-4 align-items-center">#}
+{##}
+{#          <div class="col-lg-6">#}
+{#            <img src="static/img/stats-img.svg" alt="" class="img-fluid">#}
+{#          </div>#}
+{##}
+{#          <div class="col-lg-6">#}
+{##}
+{#            <div class="stats-item d-flex align-items-center">#}
+{#              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter">6</span>#}
+{#              <p><strong>교수님 수</strong> consequuntur quae diredo para mesta</p>#}
+{#            </div><!-- End Stats Item -->#}
+{##}
+{#            <div class="stats-item d-flex align-items-center">#}
+{#              <span data-purecounter-start="0" data-purecounter-end="90" data-purecounter-duration="1" class="purecounter">90</span>#}
+{#              <p><strong>학생수</strong> adipisci atque cum quia aut</p>#}
+{#            </div><!-- End Stats Item -->#}
+{##}
+{#            <div class="stats-item d-flex align-items-center">#}
+{#              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter">3</span>#}
+{#              <p><strong>학과가 생긴지</strong> aut commodi quaerat</p>#}
+{#            </div><!-- End Stats Item -->#}
+{##}
+{#          </div>#}
+{##}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Stats Counter Section -->#}
+
+{#    <!-- ======= Call To Action Section ======= -->#}
+{#    <section id="call-to-action" class="call-to-action">#}
+{#      <div class="container text-center" data-aos="zoom-out">#}
+{#        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>#}
+{#        <h3>Call To Action</h3>#}
+{#        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>#}
+{#        <a class="cta-btn" href="#">Call To Action</a>#}
+{#      </div>#}
+{#    </section><!-- End Call To Action Section -->#}
+{#<hr>#}
+    <!-- ======= Our Services Section ======= -->
+    <section id="services" class="services sections-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Services</h2>
+          <p>학과 생활을 돕기 위해 22학번이 만든 서비스!!</p>
+        </div>
+
+        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+{##}
+{#          <div class="col-lg-4 col-md-6">#}
+{#            <div class="service-item  position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-calendar"></i>#}
+{#              </div>#}
+{#              <h3>캘린더</h3>#}
+{#              <p>학과 홈페이지와 카카오톡에서 제공되는 일정을 모아서 캘린더 형식으로 표현하였다.</p>#}
+{#              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+
+{#          <div class="col-lg-4 col-md-6">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-megaphone"></i>#}
+{#              </div>#}
+{#              <h3>공지사항</h3>#}
+{#              <p>학과 홈페이지와 카카오톡에서 제공되는 일정을 모아서 올려두었다. 캘린더와 연동되어있다. </p>#}
+{#              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-book"></i>
+              </div>
+              <h3>책방</h3>
+              <p>사용하지 않는 책을 판매 및 구매할 수 있는 서비스</p>
+              <a href="/bookstore/" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-arrow-through-heart"></i>
+              </div>
+              <h3>밥약</h3>
+              <p>선배와 밥약을 잡기 쑥스러우신가요? 신청만 한다면 선배와 밥약을 매칭시켜드립니다!!</p>
+              <a href="/reserve_meal/" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-archive"></i>
+              </div>
+              <h3>자료실</h3>
+              <p>선배들이 과제로 만든 프로젝트를 참고하고 싶다면 여기로!! 본인의 프로젝트도 공유해주세요!!</p>
+              <a href="/archive/" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+{#          </div><!-- End Service Item -->#}
+
+{#          <div class="col-lg-4 col-md-6">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-journal-album"></i>#}
+{#              </div>#}
+{#              <h3>학과 앨범</h3>#}
+{#              <p>학과 생활이 녹아있는 사진들이 모여있다! 우리의 생활이 궁금하다면??</p>#}
+{#              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+
+{#            <div class="col-lg-4 col-md-6">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-shop"></i>#}
+{#              </div>#}
+{#              <h3>팜켓</h3>#}
+{#              <p>스마트팜학생이 재배한 작물을 판매하는 곳!!</p>#}
+{#              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+{#<hr/>#}
+        </div>
+
+      </div>
+    </section><!-- End Our Services Section -->
+
+{#    <!-- ======= Testimonials Section ======= -->#}
+{#    <section id="testimonials" class="testimonials">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>Testimonials</h2>#}
+{#          <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>#}
+{#        </div>#}
+{##}
+{#        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">#}
+{#          <div class="swiper-wrapper">#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-wrap">#}
+{#                <div class="testimonial-item">#}
+{#                  <div class="d-flex align-items-center">#}
+{#                    <img src="img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">#}
+{#                    <div>#}
+{#                      <h3>Saul Goodman</h3>#}
+{#                      <h4>Ceo &amp; Founder</h4>#}
+{#                      <div class="stars">#}
+{#                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <p>#}
+{#                    <i class="bi bi-quote quote-icon-left"></i>#}
+{#                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.#}
+{#                    <i class="bi bi-quote quote-icon-right"></i>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-wrap">#}
+{#                <div class="testimonial-item">#}
+{#                  <div class="d-flex align-items-center">#}
+{#                    <img src="img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">#}
+{#                    <div>#}
+{#                      <h3>Sara Wilsson</h3>#}
+{#                      <h4>Designer</h4>#}
+{#                      <div class="stars">#}
+{#                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <p>#}
+{#                    <i class="bi bi-quote quote-icon-left"></i>#}
+{#                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.#}
+{#                    <i class="bi bi-quote quote-icon-right"></i>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-wrap">#}
+{#                <div class="testimonial-item">#}
+{#                  <div class="d-flex align-items-center">#}
+{#                    <img src="img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">#}
+{#                    <div>#}
+{#                      <h3>Jena Karlis</h3>#}
+{#                      <h4>Store Owner</h4>#}
+{#                      <div class="stars">#}
+{#                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <p>#}
+{#                    <i class="bi bi-quote quote-icon-left"></i>#}
+{#                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.#}
+{#                    <i class="bi bi-quote quote-icon-right"></i>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-wrap">#}
+{#                <div class="testimonial-item">#}
+{#                  <div class="d-flex align-items-center">#}
+{#                    <img src="img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">#}
+{#                    <div>#}
+{#                      <h3>Matt Brandon</h3>#}
+{#                      <h4>Freelancer</h4>#}
+{#                      <div class="stars">#}
+{#                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <p>#}
+{#                    <i class="bi bi-quote quote-icon-left"></i>#}
+{#                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore.#}
+{#                    <i class="bi bi-quote quote-icon-right"></i>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-wrap">#}
+{#                <div class="testimonial-item">#}
+{#                  <div class="d-flex align-items-center">#}
+{#                    <img src="img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">#}
+{#                    <div>#}
+{#                      <h3>John Larson</h3>#}
+{#                      <h4>Entrepreneur</h4>#}
+{#                      <div class="stars">#}
+{#                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                      </div>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <p>#}
+{#                    <i class="bi bi-quote quote-icon-left"></i>#}
+{#                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore.#}
+{#                    <i class="bi bi-quote quote-icon-right"></i>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#          </div>#}
+{#          <div class="swiper-pagination"></div>#}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Testimonials Section -->#}
+
+{#    <!-- ======= Portfolio Section ======= -->#}
+{#    <section id="portfolio" class="portfolio sections-bg">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>Portfolio</h2>#}
+{#          <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>#}
+{#        </div>#}
+{##}
+{#        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">#}
+{##}
+{#          <div>#}
+{#            <ul class="portfolio-flters">#}
+{#              <li data-filter="*" class="filter-active">All</li>#}
+{#              <li data-filter=".filter-app">App</li>#}
+{#              <li data-filter=".filter-product">Product</li>#}
+{#              <li data-filter=".filter-branding">Branding</li>#}
+{#              <li data-filter=".filter-books">Books</li>#}
+{#            </ul><!-- End Portfolio Filters -->#}
+{#          </div>#}
+{##}
+{#          <div class="row gy-4 portfolio-container">#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-app">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-product">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/product-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-1.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Product 1</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/branding-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-1.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Branding 1</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-books">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-1.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-app">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-2.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-product">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/product-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-2.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Product 2</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/branding-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-2.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Branding 2</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-books">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-2.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-app">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/app-3.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-product">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/product-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/product-3.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Product 3</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-branding">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/branding-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/branding-3.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Branding 3</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#            <div class="col-xl-4 col-md-6 portfolio-item filter-books">#}
+{#              <div class="portfolio-wrap">#}
+{#                <a href="img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="img/portfolio/books-3.jpg" class="img-fluid" alt=""></a>#}
+{#                <div class="portfolio-info">#}
+{#                  <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>#}
+{#                  <p>Lorem ipsum, dolor sit amet consectetur</p>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div><!-- End Portfolio Item -->#}
+{##}
+{#          </div><!-- End Portfolio Container -->#}
+{##}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Portfolio Section -->#}
+{##}
+{#    <!-- ======= Our Team Section ======= -->#}
+{#    <section id="team" class="team">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>Our Team</h2>#}
+{#          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>#}
+{#        </div>#}
+{##}
+{#        <div class="row gy-4">#}
+{##}
+{#          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">#}
+{#            <div class="member">#}
+{#              <img src="img/team/team-1.jpg" class="img-fluid" alt="">#}
+{#              <h4>Walter White</h4>#}
+{#              <span>Web Development</span>#}
+{#              <div class="social">#}
+{#                <a href=""><i class="bi bi-twitter"></i></a>#}
+{#                <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">#}
+{#            <div class="member">#}
+{#              <img src="img/team/team-2.jpg" class="img-fluid" alt="">#}
+{#              <h4>Sarah Jhinson</h4>#}
+{#              <span>Marketing</span>#}
+{#              <div class="social">#}
+{#                <a href=""><i class="bi bi-twitter"></i></a>#}
+{#                <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="member">#}
+{#              <img src="img/team/team-3.jpg" class="img-fluid" alt="">#}
+{#              <h4>William Anderson</h4>#}
+{#              <span>Content</span>#}
+{#              <div class="social">#}
+{#                <a href=""><i class="bi bi-twitter"></i></a>#}
+{#                <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">#}
+{#            <div class="member">#}
+{#              <img src="img/team/team-4.jpg" class="img-fluid" alt="">#}
+{#              <h4>Amanda Jepson</h4>#}
+{#              <span>Accountant</span>#}
+{#              <div class="social">#}
+{#                <a href=""><i class="bi bi-twitter"></i></a>#}
+{#                <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Our Team Section -->#}
+{##}
+{#    <!-- ======= Pricing Section ======= -->#}
+{#    <section id="pricing" class="pricing sections-bg">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>Pricing</h2>#}
+{#          <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>#}
+{#        </div>#}
+{##}
+{#        <div class="row g-4 py-lg-5" data-aos="zoom-out" data-aos-delay="100">#}
+{##}
+{#          <div class="col-lg-4">#}
+{#            <div class="pricing-item">#}
+{#              <h3>Free Plan</h3>#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-box"></i>#}
+{#              </div>#}
+{#              <h4><sup>$</sup>0<span> / month</span></h4>#}
+{#              <ul>#}
+{#                <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>#}
+{#                <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>#}
+{#                <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>#}
+{#                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>#}
+{#                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>#}
+{#              </ul>#}
+{#              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>#}
+{#            </div>#}
+{#          </div><!-- End Pricing Item -->#}
+{##}
+{#          <div class="col-lg-4">#}
+{#            <div class="pricing-item featured">#}
+{#              <h3>Business Plan</h3>#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-airplane"></i>#}
+{#              </div>#}
+{##}
+{#              <h4><sup>$</sup>29<span> / month</span></h4>#}
+{#              <ul>#}
+{#                <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>#}
+{#                <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>#}
+{#                <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>#}
+{#                <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>#}
+{#                <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>#}
+{#              </ul>#}
+{#              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>#}
+{#            </div>#}
+{#          </div><!-- End Pricing Item -->#}
+{##}
+{#          <div class="col-lg-4">#}
+{#            <div class="pricing-item">#}
+{#              <h3>Developer Plan</h3>#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-send"></i>#}
+{#              </div>#}
+{#              <h4><sup>$</sup>49<span> / month</span></h4>#}
+{#              <ul>#}
+{#                <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>#}
+{#                <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>#}
+{#                <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>#}
+{#                <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>#}
+{#                <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>#}
+{#              </ul>#}
+{#              <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>#}
+{#            </div>#}
+{#          </div><!-- End Pricing Item -->#}
+{##}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Pricing Section -->#}
+{#<hr>#}
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="content px-xl-5">
+              <h3>자주하는 질문 <strong>Questions</strong></h3>
+              <p>
+                </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+
+            <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    <span class="num">1.</span>
+                    졸업 후 진로는?
+                  </button>
+                </h3>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                     농촌진흥청 및 산하 연구원, 한국식품연구원 등 관련 국가 연구소의 연구원, 농식품부, 농업기술센터 등 공무원 및 지도사, 스마트팜 전문경영인 및 국내외 스마트팜 관련 기업체 진출, 생산,
+                      유통 등 농식품 전분야의 빅데이터 분석 기반의 미래 농업을 위한 전문상담 및 스타트업 등 창업, 식물공장, 정밀농업, 스마트시설관리, 스마트 육종, 데이터과학 등 심화연구를 위한 대학원 진학이 있습니다.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                    <span class="num">2.</span>
+                    스마트팜학과의 교육목표는 무엇인가요?
+                  </button>
+                </h3>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    우리학과는 신성장 산업인 스마트팜학을 국내최초로 전공학과로 개설하였으며, 미래 농업과 ICT(정보통신기술), 사물인텃넷, 빅데이터, AI(인공지능) 기술이 융합된 스마트팜, 스마트빌리지, W-E-F 넥서스 및 빅데이터 분석 등 미래 농업에 필요한 기술을 제공함으로써, 초지능, 초연결, 초융합의 4차혁명 시대에 적합한 디지털역량을 갖춘 농생명 분야 전문 인력양성을 목표로 합니다.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+
+{#              <div class="accordion-item">#}
+{#                <h3 class="accordion-header">#}
+{#                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">#}
+{#                    <span class="num">3.</span>#}
+{#                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?#}
+{#                  </button>#}
+{#                </h3>#}
+{#                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">#}
+{#                  <div class="accordion-body">#}
+{#                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div><!-- # Faq item-->#}
+
+{#              <div class="accordion-item">#}
+{#                <h3 class="accordion-header">#}
+{#                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">#}
+{#                    <span class="num">4.</span>#}
+{#                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?#}
+{#                  </button>#}
+{#                </h3>#}
+{#                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">#}
+{#                  <div class="accordion-body">#}
+{#                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div><!-- # Faq item-->#}
+
+{#              <div class="accordion-item">#}
+{#                <h3 class="accordion-header">#}
+{#                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">#}
+{#                    <span class="num">5.</span>#}
+{#                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?#}
+{#                  </button>#}
+{#                </h3>#}
+{#                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">#}
+{#                  <div class="accordion-body">#}
+{#                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div><!-- # Faq item-->#}
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+{#    <!-- ======= Recent Blog Posts Section ======= -->#}
+{#    <section id="recent-posts" class="recent-posts sections-bg">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>Recent Blog Posts</h2>#}
+{#          <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto accusamus fugit aut qui distinctio</p>#}
+{#        </div>#}
+{##}
+{#        <div class="row gy-4">#}
+{##}
+{#          <div class="col-xl-4 col-md-6">#}
+{#            <article>#}
+{##}
+{#              <div class="post-img">#}
+{#                <img src="img/blog/blog-1.jpg" alt="" class="img-fluid">#}
+{#              </div>#}
+{##}
+{#              <p class="post-category">Politics</p>#}
+{##}
+{#              <h2 class="title">#}
+{#                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>#}
+{#              </h2>#}
+{##}
+{#              <div class="d-flex align-items-center">#}
+{#                <img src="img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">#}
+{#                <div class="post-meta">#}
+{#                  <p class="post-author">Maria Doe</p>#}
+{#                  <p class="post-date">#}
+{#                    <time datetime="2022-01-01">Jan 1, 2022</time>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </article>#}
+{#          </div><!-- End post list item -->#}
+{##}
+{#          <div class="col-xl-4 col-md-6">#}
+{#            <article>#}
+{##}
+{#              <div class="post-img">#}
+{#                <img src="img/blog/blog-2.jpg" alt="" class="img-fluid">#}
+{#              </div>#}
+{##}
+{#              <p class="post-category">Sports</p>#}
+{##}
+{#              <h2 class="title">#}
+{#                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>#}
+{#              </h2>#}
+{##}
+{#              <div class="d-flex align-items-center">#}
+{#                <img src="img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">#}
+{#                <div class="post-meta">#}
+{#                  <p class="post-author">Allisa Mayer</p>#}
+{#                  <p class="post-date">#}
+{#                    <time datetime="2022-01-01">Jun 5, 2022</time>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </article>#}
+{#          </div><!-- End post list item -->#}
+{##}
+{#          <div class="col-xl-4 col-md-6">#}
+{#            <article>#}
+{##}
+{#              <div class="post-img">#}
+{#                <img src="img/blog/blog-3.jpg" alt="" class="img-fluid">#}
+{#              </div>#}
+{##}
+{#              <p class="post-category">Entertainment</p>#}
+{##}
+{#              <h2 class="title">#}
+{#                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>#}
+{#              </h2>#}
+{##}
+{#              <div class="d-flex align-items-center">#}
+{#                <img src="img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">#}
+{#                <div class="post-meta">#}
+{#                  <p class="post-author">Mark Dower</p>#}
+{#                  <p class="post-date">#}
+{#                    <time datetime="2022-01-01">Jun 22, 2022</time>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </article>#}
+{#          </div><!-- End post list item -->#}
+{##}
+{#        </div><!-- End recent posts list -->#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Recent Blog Posts Section -->#}
+
+{#    <!-- ======= Contact Section ======= -->#}
+{#    <section id="contact" class="contact">#}
+{#      <div class="container" data-aos="fade-up">#}
+{##}
+{#        <div class="section-header">#}
+{#          <h2>Contact</h2>#}
+{#          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>#}
+{#        </div>#}
+{##}
+{#        <div class="row gx-lg-0 gy-4">#}
+{##}
+{#          <div class="col-lg-4">#}
+{##}
+{#            <div class="info-container d-flex flex-column align-items-center justify-content-center">#}
+{#              <div class="info-item d-flex">#}
+{#                <i class="bi bi-geo-alt flex-shrink-0"></i>#}
+{#                <div>#}
+{#                  <h4>Location:</h4>#}
+{#                  <p>A108 Adam Street, New York, NY 535022</p>#}
+{#                </div>#}
+{#              </div><!-- End Info Item -->#}
+{##}
+{#              <div class="info-item d-flex">#}
+{#                <i class="bi bi-envelope flex-shrink-0"></i>#}
+{#                <div>#}
+{#                  <h4>Email:</h4>#}
+{#                  <p>info@example.com</p>#}
+{#                </div>#}
+{#              </div><!-- End Info Item -->#}
+{##}
+{#              <div class="info-item d-flex">#}
+{#                <i class="bi bi-phone flex-shrink-0"></i>#}
+{#                <div>#}
+{#                  <h4>Call:</h4>#}
+{#                  <p>+82 063-270-2555</p>#}
+{##}
+{#                </div>#}
+{#              </div><!-- End Info Item -->#}
+{##}
+{#              <div class="info-item d-flex">#}
+{#                <i class="bi bi-clock flex-shrink-0"></i>#}
+{#                <div>#}
+{#                  <h4>Open Hours:</h4>#}
+{#                  <p>Mon-Sat: 11AM - 23PM</p>#}
+{#                </div>#}
+{#              </div><!-- End Info Item -->#}
+{#            </div>#}
+{##}
+{#          </div>#}
+{##}
+{#          <div class="col-lg-8">#}
+{#            <form action="forms/contact.php" method="post" role="form" class="php-email-form">#}
+{#              <div class="row">#}
+{#                <div class="col-md-6 form-group">#}
+{#                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>#}
+{#                </div>#}
+{#                <div class="col-md-6 form-group mt-3 mt-md-0">#}
+{#                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="form-group mt-3">#}
+{#                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>#}
+{#              </div>#}
+{#              <div class="form-group mt-3">#}
+{#                <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>#}
+{#              </div>#}
+{#              <div class="my-3">#}
+{#                <div class="loading">Loading</div>#}
+{#                <div class="error-message"></div>#}
+{#                <div class="sent-message">Your message has been sent. Thank you!</div>#}
+{#              </div>#}
+{#              <div class="text-center"><button type="submit">Send Message</button></div>#}
+{#            </form>#}
+{#          </div><!-- End Contact Form -->#}
+{##}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section><!-- End Contact Section -->#}
+{##}
+{#  </main><!-- End #main -->#}
+
+
+
+{% endblock %}
