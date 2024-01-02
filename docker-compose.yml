@@ -3,11 +3,11 @@ version: '3'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:23030
+    command: python manage.py runserver sfarm.taegon.kr:15030
     volumes:
       - ./:/usr/src/app/
     ports:
-      - 23030:23030
+      - 15030:15030
 
 
 

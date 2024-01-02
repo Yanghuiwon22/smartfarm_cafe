@@ -68,7 +68,7 @@
                 <a href="{% url 'message_list' %}"><i class="fas fa-solid fa-comments"></i></a>
 
             {% else %}
-                <a role="button" class="btn btn-block" href="{% provider_login_url 'google-oauth2' %}"> {# 로그인 버튼 #}
+                <a role="button" class="btn btn-block" href="{% provider_login_url 'google' %}"> {# 로그인 버튼 #}
                     <i class="fab fa-google"></i>&nbsp&nbsp Login</a>
 
             {% endif %}

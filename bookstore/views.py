@@ -4,8 +4,8 @@ from .models import BookStore, Category
 from django.contrib.auth.mixins import LoginRequiredMixin
 from messaging.views import MessageForm
 
-from django.urls import reverse
-from django.http import HttpResponseRedirect
+import requests
+
 class BookStoreList(ListView):
     model = BookStore
     ordering = '-pk'
@@ -77,4 +77,6 @@ def bookstore_sold(request, pk):
     if book.is_sold:
         book.delete()
     return render(request, 'bookstore/bookstore_soldout.html')
+
+
 
