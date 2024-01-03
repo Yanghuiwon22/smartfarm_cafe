@@ -34,7 +34,7 @@ DEBUG = int(os.environ.get("DEBUG", 1))
 if os.environ.get("DJANGO_ALLOWED_HOSTS"):
     ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 else:
-    ALLOWED_HOSTS = ['sfarm.taegon.kr', '113.198.63.26', 'sfarm.taegon.kr:15030']
+    ALLOWED_HOSTS = ['sfarm.taegon.kr', '113.198.63.26', 'sfarm.taegon.kr:15060']
     # ALLOWED_HOSTS = []
 
 

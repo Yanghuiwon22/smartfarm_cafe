@@ -3,11 +3,10 @@ version: '3'
 services:
   web:
     build: .
-    command: python manage.py runserver sfarm.taegon.kr:15030
+    command: gunicorn softeng_2023_prj.wsgi:application --bind 0.0.0.0:15060
     volumes:
       - ./:/usr/src/app/
     ports:
-      - 15030:15030
-
+      - 15060:15060
 
 
