@@ -121,14 +121,20 @@
                                 {% csrf_token %}
                                 <!-- Title, Publisher, Author, Price set, Price container -->
                                 <div class="form-group title-container">
-                                    <label for="{{ form.title.id_for_label }}">책 제목</label>
-                                    {{ form.title }}
-                                    <label for="{{ form.author.id_for_label }}">저자</label>
-                                    {{ form.author }}
-                                    <label for="{{ form.publisher.id_for_label }}">출판사</label>
-                                    {{ form.publisher }}
-{#                                    <label for="{{ form.category.id_for_label }}">카테고리</label>#}
-{#                                    {{ form.category }}#}
+
+{#                                    <button type="button" id="connecting-camera">카메라로 바코드 스캔하기</button>#}
+
+                                    <label for="{{ form.isbn.id_for_label }}">ISBN</label>
+                                    <span class="help-text text-muted">{{ form.isbn.help_text }}</span>
+                                    <input type="text" id="{{ form.isbn.id_for_label }}">
+                                    <p id="result"></p>
+{##}
+{#                                    <label for="{{ form.title.id_for_label }}">책 제목</label>#}
+{#                                    {{ form.title }}#}
+{#                                    <label for="{{ form.author.id_for_label }}">저자</label>#}
+{#                                    {{ form.author }}#}
+{#                                    <label for="{{ form.publisher.id_for_label }}">출판사</label>#}
+{#                                    {{ form.publisher }}#}
                                 </div>
                                 <hr/>
                                 <!-- Content container -->
@@ -167,4 +173,66 @@
         </div>
     </section>
 </main>
+
+    <script>
+
+
+        var inputElement = document.getElementById('{{ form.isbn.id_for_label }}');
+
+        inputElement.addEventListener('input', handleInput)
+
+        function handleInput() {
+            var inputValue = inputElement.value;
+            if (inputValue.length >= 13) {
+                console.log("13글자 이상입니다.")
+                showNumber()
+            }
+        }
+
+        function showNumber() {
+            // 입력 필드의 값을 가져와서 실시간으로 보여줌
+            console.log('showNumber 호출');
+            var inputElement = document.getElementById('{{ form.isbn.id_for_label }}');
+            var resultElement = document.getElementById('result');
+            {#resultElement.textContent = '입력한 숫자: ' + inputElement.value;#}
+
+            fetch('/bookstore/get_book_info/' + inputElement.value + '/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('서버 응답 실패');
+                }
+                return response.json();
+            })
+
+            .then(bookInfo => {
+                // 서버에서 받아온 결과를 결과 엘리먼트에 표시
+                const resultArray = bookInfo.result[0];
+
+                resultElement.innerHTML = '<p><strong>도서 제목: ' + resultArray.titleInfo + '</strong></p>' +
+                                            '<p><strong>' + resultArray.authorInfo + '</strong></p>' +
+                                           '<p><strong>출판사: ' + resultArray.pubInfo + '</strong></p>';
+                console.log('서버 응답:', resultArray)
+
+            })
+            .catch(error => {
+                console.error('서버 요청 실패:', error);
+            })}
+
+
+
+
+        {#document.getElementById("connecting-camera").addEventListener("click", function () {#}
+        {#    // 서버에 POST 요청을 보내 파이썬 함수 호출#}
+        {#    fetch('/bookstore/connecting-camera', {#}
+        {#        method: 'POST',#}
+        {#    })#}
+        {#        .then(response => response.text())#}
+        {#        .then(data => {#}
+        {#            // 서버로부터의 응답 출력#}
+        {#            console.log(data);#}
+        {#        })#}
+        {#        .catch(error => console.error('에러 발생:', error));#}
+
+
+    </script>
 {% endblock %}

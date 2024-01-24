@@ -23,7 +23,6 @@ class Archive(models.Model):
     professor = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
     student = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
     content = models.TextField()
     head_image = models.ImageField(upload_to='archive/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(upload_to='archive/files/%Y/%m/%d/', blank=True)

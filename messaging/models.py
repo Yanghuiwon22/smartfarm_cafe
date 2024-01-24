@@ -7,6 +7,7 @@ class Message(models.Model):
     receiver = models.ForeignKey(User, related_name='received_messages', on_delete=models.CASCADE)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+    anonymous = models.BooleanField(default=False)
     room = f'{sender}_{receiver}'
 
     def __str__(self):

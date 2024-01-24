@@ -1,0 +1,67 @@
+{% load static %}
+{% block content %}
+    <style>
+        body {
+            {#background-color: #008374; /* 배경색 설정 */#}
+            {#color: rgb(255, 255, 255); /* 기본 글자색 설정 */#}
+
+            background-color: #f6f6f6; /* 배경색 설정 */
+            {#color: rgb(255, 255, 255); /* 기본 글자색 설정 */#}
+
+            color: #f6f6f6; /* 기본 글자색 설정 */
+
+        }
+
+        .accounts_form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            padding: 30px;
+
+            background-color: #008374;
+            border-radius: 8px;
+
+        }
+
+        .accounts_form button {
+            display: block;
+            margin: 0 auto;
+            width: 100px; /* 원하는 너비로 설정 */
+            height: 40px; /* 원하는 높이로 설정 */
+            font-size: 16px; /* 폰트 크기 설정 */
+        }
+
+        .accounts_form input {
+            width: 250px; /* 원하는 너비로 설정 */
+            height: 40px; /* 원하는 높이로 설정 */
+            font-size: 16px; /* 폰트 크기 설정 */
+        }
+
+        .accounts_form p {
+            font-size: 50px;
+            font-weight: bolder;
+            margin: 20px 0px
+        }
+
+
+    </style>
+
+    <body>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="accounts_form">
+
+            <div class="logo">
+                <p>SmartFarm<span style=" color: orange">.</span></p>
+            </div>
+
+            <button type="submit">Logout</button>
+
+        </div>
+    </form>
+    </body>
+
+{% endblock %}

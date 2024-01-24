@@ -1,0 +1,86 @@
+{% extends 'single_pages/layout.html' %}
+{% block content %}
+
+    {% load static %}
+
+    <title>bookstore detail</title>
+
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>reserve meal detail</h2>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'bookstore_list' %}">my page</a></li>
+                        <li>reserve meal detail</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
+
+
+        <!-- ======= Blog Details Section ======= -->
+
+        <!-- ======= Blog Details Section ======= -->
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="blog-details">
+                            {#                        <h1>익명으로 밥약 신청하기</h1>#}
+                            {#                        <hr/>#}
+                            <div class="content">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div>
+
+                                        {# 폼 내용 #}
+                                        <h2><strong>{{ meals.title }}</strong></h2>
+                                        <hr/>
+
+                                        <p>선호하는 음식 : {{ meals.food }}</p>
+
+
+                                        <label for="{{ form.content.id_for_label }}">
+                                            하고싶은 말을 적어주세요!! : <br>
+                                        </label> {{ form.content }}
+                                        <hr/>
+
+
+                                        <button type="submit">제출</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        /* 추가된 스타일 */
+        .book-image {
+            max-width: 100%; /* 이미지의 최대 너비를 100%로 설정 */
+            height: auto; /* 높이 자동 조절 */
+            display: block; /* 이미지를 블록 요소로 설정하여 여백 조절 */
+            margin: auto; /* 이미지 중앙 정렬 */
+        }
+    </style>
+
+{% endblock %}
+
+
+

@@ -3,6 +3,15 @@
 
     {% load static %}
 
+    <style>
+        .send_message_button {
+display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+        }
+    </style>
+
     <title>bookstore list</title>
 
     <main id="main">
@@ -23,14 +32,14 @@
                 <div class="container">
                     <ol>
                         <li><a href="{% url 'smartfarm_landing' %}">SmartFarm</a></li>
-                        <li>bookstore</li>
+                        <li>Reserve Meal</li>
                     </ol>
                 </div>
             </nav>
         </div><!-- End Breadcrumbs -->
 
-        <!-- ======= Blog Section ======= -->
 
+        {# 밥약 신청 버튼 2개 #}
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
                 <div class="row">
@@ -38,27 +47,42 @@
                     <div class="reserve-meal-list-menu" style="display: flex">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-right: 10px">
                             <div class="pricing pricing-item">
-                                <a href="{% url 'reserve_regi' %}" class="buy-btn" >지정하여 신청하기</a>
+                                <a href="{% url 'reserve_regi' %}" class="buy-btn">지정하여 신청하기</a>
                             </div>
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <div class="pricing pricing-item">
+                            <div class="pricing pricing-item send_message_button">
                                 <a href="{% url 'reserve_regi_secret' %}" class="buy-btn">익명으로 신청하기</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-md">
-                        <article>
+                    <div class="row gy-4 posts-list">
+                        {% for meals in all_meals %}
+                            <div class="col-xl-4 col-md-6">
+                                {% if meals.anonymous %}
+                                    <article>
+                                        <h4><strong>{{ meals.title }}</strong></h4>
+                                        <hr>
+                                        선호 음식 : {{ meals.food }}<br><br>
+                                        {{ meals.content }}<br>
 
-                        </article>
-                        {#                            </div>#}
-                    </div>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                            <div class="pricing pricing-item send_message_button" style="padding: 15px">
+                                                <a href="{% url 'send_reserve_message' pk=meals.id %}" class="buy-btn">
+                                                    신청하기</a>
+                                            </div>
+                                        </div>
+
+                                    </article>
+                                {% endif %}
+                            </div><!-- End post list item -->
+                        {% endfor %}
                     </div><!-- End blog posts list -->
-                </div>
+
+                </div><!-- End blog posts list -->
             </div>
         </section><!-- End Blog Section -->
-
     </main><!-- End #main -->
 
 {% endblock %}

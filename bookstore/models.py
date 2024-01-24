@@ -28,7 +28,7 @@ class BookStore(models.Model):
     publisher = models.CharField(max_length=100)
     price_set = models.CharField(max_length=100)
     price = models.CharField(max_length=100)
-    isbn = models.CharField(max_length=13)
+    isbn = models.CharField(max_length=13, null=True, blank=True, help_text="'-'를 뺀 숫자만을 입력해주세요")
 
     content = models.TextField()
     img_file = models.ImageField(upload_to='bookstore/images/%Y/%m/%d', blank=True)

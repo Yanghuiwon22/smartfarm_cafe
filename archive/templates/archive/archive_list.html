@@ -4,6 +4,25 @@
 
     {% load static %}
 
+    <script>
+        function searchPost() {
+            let searchValue = document.getElementById('search-input').value.trim();
+            if (searchValue.length > 1) {
+                location.href = "/archive/search/" + searchValue + "/";
+            } else {
+                alert('검색어(' + searchValue + ')가 너무 짧습니다.');
+            }
+        }
+
+        document.getElementById('search-input').addEventListener('keyup', function(event)
+        {
+            if(event.key === 'Enter'){
+                searchPost();
+            }
+        })
+
+    </script>
+
     <title>Archive List</title>
 
     <main id="main">
@@ -37,14 +56,30 @@
             <div class="container" data-aos="fade-up">
                 <div class="row">
 
-                    <!-- 자료 등록하기 버튼 -->
-                 <div style="padding-bottom: 20px;">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <div class="pricing pricing-item">
-                            <a href="{% url 'archive_register_form' %}" class="buy-btn">자료 등록하기</a>
+                    {# 검색 기능 창 #}
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..."
+                                       aria-label="Enter search term..." aria-describedby="button-search"
+                                       id="search-input"/>
+                                <button class="btn btn-primary" id="button-search" type="button" onclick="searchPost()">
+                                    Go!
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+
+                    <!-- 자료 등록하기 버튼 -->
+                    <div style="padding-bottom: 20px;">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="pricing pricing-item">
+                                <a href="{% url 'archive_register_form' %}" class="buy-btn">자료 등록하기</a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="container">
                         <div class="row">
@@ -52,8 +87,9 @@
                                 <thead>
                                 <tr>
                                     <th style="background-color:#eeeeee; text-align:center;">번호</th>
+                                    <th style="background-color:#eeeeee; text-align:center;">과목</th>
                                     <th style="background-color:#eeeeee; text-align:center;">제목</th>
-                                    <th style="background-color:#eeeeee; text-align:center;">작성자 </th>
+                                    <th style="background-color:#eeeeee; text-align:center;">작성자</th>
                                     <th style="background-color:#eeeeee; text-align:center;">작성일</th>
                                 </tr>
                                 </thead>
@@ -61,6 +97,7 @@
                                 {% for item in object_list %}
                                     <tr>
                                         <td>{{ item.pk }}</td>
+                                        <td>{{ item.subject }}</td>
                                         <td><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></td>
                                         <td>{{ item.writer }}</td>
                                         <td>{{ item.created_at }}</td>
@@ -68,7 +105,7 @@
                                 {% endfor %}
                                 </tbody>
                             </table>
-{#                            <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>#}
+                            {#                            <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>#}
                         </div>
                     </div>
                 </div><!-- End blog posts list -->

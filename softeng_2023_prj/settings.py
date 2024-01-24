@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from django.conf import settings
+
 
 
 # from allauth.socialaccount.models import SocialApp
@@ -34,19 +36,23 @@ DEBUG = int(os.environ.get("DEBUG", 1))
 if os.environ.get("DJANGO_ALLOWED_HOSTS"):
     ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 else:
-    ALLOWED_HOSTS = ['sfarm.taegon.kr', '113.198.63.26', 'sfarm.taegon.kr:15060']
-    # ALLOWED_HOSTS = []
+    # ALLOWED_HOSTS = ['sfarm.taegon.kr', '113.198.63.26', 'sfarm.taegon.kr:15060']
+    ALLOWED_HOSTS = []
 
 
+# settings.configure(
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
+    # 'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.contenttypes',
     'django_extensions',
+# 'myAppName.apps.myAppNameConfig',
+
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -61,7 +67,7 @@ INSTALLED_APPS = [
     'channels',
     'messaging',
 ]
-
+# )
 ASGI_APPLICATION = 'eng_projext.asgi.application'
 
 CHANNEL_LAYERS = {
@@ -171,4 +177,3 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-

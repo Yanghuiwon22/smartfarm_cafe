@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Archive
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 class ArchiveList(ListView):
     model = Archive
@@ -28,7 +29,7 @@ class ArchiveDetail(DetailView):
 class ArchiveForm(forms.ModelForm):
     class Meta:
         model = Archive
-        fields = ['title', 'author', 'professor', 'subject', 'student', 'content', 'file_upload', 'head_image']
+        fields = ['title', 'professor', 'subject', 'student', 'content', 'file_upload', 'head_image']
 
 class ArchiveForm_Form(LoginRequiredMixin, CreateView):
     model = Archive
@@ -76,3 +77,23 @@ def category_page(request, slug):
         # 처리하고자 하는 예외 발생 시 redirect 또는 다른 처리 추가
         return redirect('archive:archive_list')
 
+class PostSearch(ArchiveList):
+    # PostSearch에서는 검색된 결과를 한 페이지에 모두 보여주기 위해 PostList에 지정된 Pagination 속성을 해제한다.
+    paginate_by = None
+
+    def get_queryset(self):
+        # URL을 통해 넘어온 검색어를 받아 q에 저장한다.
+        q = self.kwargs['q']
+        # title__contains처럼 title.contains 대신 밑줄 2개를 대신 사용하는 것에 유의한다.
+        # 제목과 태그 모두에 '파이썬'이 포함된 경우 중복을 막기 위해 distinct를 사용한다.
+        post_list = Archive.objects.filter(
+            Q(title__contains=q) | Q(subject__contains=q)
+        ).distinct()
+        return post_list
+
+    def get_context_data(self, **kwargs):
+        context = super(PostSearch, self).get_context_data()
+        q = self.kwargs['q']
+        context['search_info'] = f'Search: {q} ({self.get_queryset().count()})'
+
+        return context

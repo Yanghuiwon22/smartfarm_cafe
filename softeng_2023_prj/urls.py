@@ -20,6 +20,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+smartfarm_council = 'http://sfarm.taegon.kr:15060/'
+
 urlpatterns = [
     path('', include('single_pages.urls')),
     path('admin/', admin.site.urls),

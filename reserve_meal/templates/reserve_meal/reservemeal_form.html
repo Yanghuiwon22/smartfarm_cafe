@@ -73,7 +73,7 @@
         margin-bottom: 20px;
     }
 
-        /* img_file */
+    /* img_file */
     .form-group.img-container {
         background-color: #f5f5f5;
         padding: 15px;
@@ -83,9 +83,7 @@
     }
 
 
-
-
-        /* Traces, Status container */
+    /* Traces, Status container */
     .form-group.traces-status-container {
         background-color: #f5f5f5;
         padding: 15px;
@@ -101,52 +99,64 @@
 {% load static %}
 
 {% block content %}
+    <main id="main">
+
         <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center">
-        <div class="container position-relative">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-              <h2>reserve meal register</h2>
-              <p></p>
+        <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center">
+                <div class="container position-relative">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <h2>reserve meal</h2>
+                            <p>마이페이지</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <nav>
-        <div class="container">
-          <ol>
-            <li><a href="{% url 'reserve_main' %}">reserve meal</a></li>
-            <li>reserve meal register</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Breadcrumbs -->
+            <nav>
+                <div class="container">
+                    <ol>
+                        <li><a href="#">my_page</a></li>
+                        <li>reserve meal</li>
+                    </ol>
+                </div>
+            </nav>
+        </div><!-- End Breadcrumbs -->
 
-    <div class="blog">
-    <div class="blog-details">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div>
-                <label for="{{ form.timetable.id_for_label }}">
-                    시간표를 등록해주세요 (사진)<br>
-                </label> {{ form.timetable }}<br>
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="blog-details">
+                            <h1>밥약 신청하기</h1>
+                            <hr/>
+                            <div class="content">
+                                <form method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div>
+                                        <label for="{{ form.timetable.id_for_label }}">
+                                            시간표를 등록해주세요 (사진)<br>
+                                        </label> {{ form.timetable }}<br>
 
-                <hr/>
-                <label for="{{ form.receiver.id_for_label }}">
-                    보낼사람을 선택해주세요<br>
-                </label> {{ form.receiver }}
+                                        <hr/>
+                                        <label for="{{ form.receiver.id_for_label }}">
+                                            보낼사람을 선택해주세요<br>
+                                        </label> {{ form.receiver }}
 
-                <hr/>
-                <label for="{{ form.content.id_for_label }}">
-                    하고 싶은 말을 입력해주세요<br>
-                </label> {{ form.content }}
+                                        <hr/>
+                                        <label for="{{ form.content.id_for_label }}">
+                                            하고 싶은 말을 입력해주세요<br>
+                                        </label> {{ form.content }}
 
-                <hr/>
-                <button type="submit">제출</button>
+                                        <hr/>
+                                        <button type="submit">제출</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-    </div>
-    </div>
+        </section>
+    </main>
 {% endblock %}

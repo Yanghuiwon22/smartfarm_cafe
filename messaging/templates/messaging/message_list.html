@@ -22,7 +22,7 @@
             <nav>
                 <div class="container">
                     <ol>
-                        <li><a href="{% url 'my_page' %}">my_page</a></li>
+                        <li><a href="#">my_page</a></li>
                         <li>message</li>
                     </ol>
                 </div>
@@ -44,7 +44,7 @@
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                 <div class="pricing pricing-item">
-                                    <a href="{% url 'reserve_list' %}" class="buy-btn">밥약</a>
+                                    <a href="{% url 'mypage_meal' %}" class="buy-btn">밥약</a>
                                 </div>
                             </div>
                         </div>
@@ -70,27 +70,64 @@
                                                  style="display: flex; justify-content: space-between;">
                                                 <div style="display: flex">
                                                     <p class="title"><a
-                                                            href="/messaging/{{ user.id }}/">{{ user }}</a>
+                                                            href="/messaging/{{ user.id }}/">
+                                                        {% if not message.anonymous %}
+                                                            {{ user }}
+                                                        {% else %}
+                                                            익명
+                                                        {% endif %}
+                                                    </a>
                                                     </p>
                                                     {% if message.sender == request.user %}
-                                                        <p>sent</p>
+
+                                                        <p>보낸 메세지</p>
                                                     {% elif message.receiver == request.user %}
-                                                        <p>received</p>
+                                                        <p>받은 메세지</p>
                                                     {% endif %}
+
+
                                                 </div>
-                                                <p>{{ message.timestamp }}</p>
+
+                                                <div style="display: flex">
+                                                    <div style="display: flex; padding-right: 10px">
+                                                        {% if message.anonymous %}
+                                                            <div class="messaging-select-right d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <div class="pricing pricing-item" style="padding: 5px">
+                                                                    <button
+                                                                       class="buy-btn">수락</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="messaging-select-right d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <div class="pricing pricing-item" style="padding: 5px">
+                                                                    <button type="button"
+                                                                       class="buy-btn">거절</button>
+                                                                </div>
+                                                            </div>
+
+                                                        {% endif %}
+                                                    </div>
+                                                    <p>{{ message.timestamp }}</p>
+
+
+                                                </div>
                                             </div>
-                                            {% if request.user in  message.sender or message.receiver %}
-                                                <p>{{ message.content }}</p>
-                                            {% endif %}
+
+                                            <div>
+                                                {% if request.user in  message.sender or message.receiver %}
+                                                    <p>{{ message.content }}</p>
+
+                                                {% endif %}
+                                            </div>
+
+
                                         </article>
                                     </div>
                                 {% endif %}
                             {% endfor %}
                         {% endfor %}
                     {% endfor %}
+
                 </div>
-            </div>
         </section>
     </main>
 {% endblock %}

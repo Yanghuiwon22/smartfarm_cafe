@@ -57,9 +57,10 @@
             {% if user.is_authenticated %}
                 <div class="navbar">
                     <ul>
-                        <a href="{% url 'my_page' %}"><span>{{ user.username }}</span></a>
+
 
                         <ul>
+                            <li><a href="#"><span>{{ user.username }}</span></a></li>
                             <li><a class="dropdown-active" href="/accounts/logout/">Log Out</a></li>
                         </ul>
                     </ul>
@@ -68,9 +69,10 @@
                 <a href="{% url 'message_list' %}"><i class="fas fa-solid fa-comments"></i></a>
 
             {% else %}
-                <a role="button" class="btn btn-block" href="{% provider_login_url 'google' %}"> {# 로그인 버튼 #}
-                    <i class="fab fa-google"></i>&nbsp&nbsp Login</a>
-
+{#                <a role="button" class="btn btn-block" href="{% provider_login_url 'google' %}"> {# 로그인 버튼 #}
+{#                    <i class="fab fa-google"></i>&nbsp&nbsp Login</a>#}
+                <a role="button" class="btn btn-block" href="/accounts/login/?next=/">Log in</a>
+                <a role="button" class="btn btn-block" href="/accounts/signup/?next=%2F">Sign Up</a>
             {% endif %}
 
         </div>
@@ -86,7 +88,7 @@
         </a>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="{%  url 'smartfarm_landing' %}">Home</a></li>
+                <li><a href="http://sfarm.taegon.kr:15010">학생회</a></li>
 {#                <li><a href="{% url 'about_SF' %}">About</a></li>#}
                 {#          <li><a href="#services">Services</a></li>#}
 {#                <li class="dropdown"><a href="#services"><span>Services</span> <i#}
@@ -95,7 +97,7 @@
 {#                        <li><a href="#">캘린더</a></li>#}
 {#                        <li><a href="#">공지사항</a></li>#}
                         <li><a href="{% url 'bookstore_list' %}">책방</a></li>
-                        <li><a href="{% url 'reserve_main' %}">밥약</a></li>
+                        <li><a href="{% url 'reserve_list' %}">밥약</a></li>
                         <li><a href="{% url 'archive_list' %}">자료실</a></li>
 {#                        <li><a href="#">학과 앨범</a></li>#}
 {#                        <li><a href="#">팜켓</a></li>#}
@@ -127,7 +129,7 @@
                 <a href="{% url 'smartfarm_landing' %}" class="logo d-flex align-items-center">
                     <span>SmartFarm</span>
                 </a>
-                <p>스마트팜학과는 4차 산업혁명 기술을pip 활용하여 <br>스마트팜 분야에 전문인력을 양성합니다.</p>
+                <p>스마트팜학과는 4차 산업혁명 기술을 활용하여 <br>스마트팜 분야에 전문인력을 양성합니다.</p>
                 <div class="social-links d-flex mt-4">
 {#                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>#}
 {#                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>#}
@@ -140,7 +142,7 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
-                    <li><a href="{%  url 'smartfarm_landing' %}">Home</a></li>
+                    <li><a href="http://sfarm.taegon.kr:15010">학생회</a></li>
 {#                    <li><a href="{% url 'about_SF' %}">About</a></li>#}
 {#                    <li><a href="/#services">Services</a></li>#}
 {#                    <li><a href="#">Terms of service</a></li>#}

@@ -1,0 +1,89 @@
+{% load static %}
+{% block content %}
+    <style>
+        body {
+            {#background-color: #008374; /* 배경색 설정 */#}
+            {#color: rgb(255, 255, 255); /* 기본 글자색 설정 */#}
+
+            background-color: #f6f6f6; /* 배경색 설정 */
+            {#color: rgb(255, 255, 255); /* 기본 글자색 설정 */#}
+
+            color: #f6f6f6; /* 기본 글자색 설정 */
+
+        }
+
+        .accounts_form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            padding: 30px;
+
+            background-color: #008374;
+            border-radius: 8px;
+
+        }
+
+        .accounts_form button {
+            display: block;
+            margin: 0 auto;
+            width: 100px; /* 원하는 너비로 설정 */
+            height: 40px; /* 원하는 높이로 설정 */
+            font-size: 16px; /* 폰트 크기 설정 */
+        }
+
+        .accounts_form input {
+            width: 250px; /* 원하는 너비로 설정 */
+            height: 40px; /* 원하는 높이로 설정 */
+            font-size: 16px; /* 폰트 크기 설정 */
+        }
+
+        .accounts_form p {
+            font-size: 50px;
+            font-weight: bolder;
+            margin: 20px 0px
+        }
+
+
+    </style>
+
+    <body>
+    <form method="post" action="{% url 'custom_login' %}">
+
+        <div class="accounts_form">
+            <div class="logo">
+                <p>SmartFarm<span style=" color: orange">.</span></p>
+            </div>
+
+            <div style="padding:10px;">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+{##}
+{#                <label for="{{ form.username.id_for_label }}">username</label><br>#}
+{#                {{ form.username }}<br><br>#}
+{#                <label for="{{ form.first_name.id_for_label }}">first_name</label><br>#}
+{#                {{ form.first_name }}<br><br>#}
+{#                <label for="{{ form.last_name.id_for_label }}">last_name</label><br>#}
+{#                {{ form.last_name }}<br><br>#}
+{#                <label for="{{ form.password1.id_for_label }}">password1</label><br>#}
+{#                {{ form.password1 }}<br><br>#}
+{#                <label for="{{ form.password2.id_for_label }}">password2</label><br>#}
+{#                {{ form.password2 }}<br><br>#}
+
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </div>
+
+    </form>
+
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+    </body>
+
+{% endblock %}

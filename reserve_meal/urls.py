@@ -1,16 +1,17 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import reserve_main, reserve_list, ReserveMeal_Form, ReserveMealDetail,ReserveMeal_Form_Secret
-
-from django.conf import settings
-from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
-    path('', reserve_main, name='reserve_main'),
-    path('regi/', ReserveMeal_Form.as_view(), name='reserve_regi'),
-    path('regi_secret/', ReserveMeal_Form_Secret.as_view(), name='reserve_regi_secret'),
+    # 밥약
+    path('', views.reserve_list, name='reserve_list'),
 
-    # path('reserve_list/', ReserveMealDetail.as_view(), name='reserve_list'),
-    path('reserve_list/', reserve_list, name='reserve_list'),
+    # 밥약 작성폼
+    path('reserve_form/', views.ReserveMeal_Form.as_view(), name='reserve_regi'),
+    path('reserve_form_secret/', views.ReserveMeal_Form_Secret.as_view(), name='reserve_regi_secret'),
+
+    # 메세지
+    path('mypage_meal', views.mypage_meal, name='mypage_meal'),
+    path('send_reserve_message/<int:pk>', views.send_reserve_message, name='send_reserve_message')
 
 ]
