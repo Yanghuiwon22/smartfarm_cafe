@@ -2,6 +2,7 @@ from django.db import models
 import os
 from multiselectfield import MultiSelectField
 from django.contrib.auth.models import User
+from softeng_2023_prj import settings
 # Create your models here.
 
 
@@ -33,7 +34,7 @@ class BookStore(models.Model):
     content = models.TextField()
     img_file = models.ImageField(upload_to='bookstore/images/%Y/%m/%d', blank=True)
 
-    writer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    writer = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
 
     traces_opt = [
         ('밑줄(연필/샤프)', '필기흔적 없음'),

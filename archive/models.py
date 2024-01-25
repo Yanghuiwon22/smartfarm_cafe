@@ -3,6 +3,7 @@ from multiselectfield import MultiSelectField
 from django.contrib.auth.models import User
 from django.db import models
 import os
+from softeng_2023_prj import settings
 from django.urls import reverse
 
 # class Category(models.Model):
@@ -29,7 +30,7 @@ class Archive(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, blank=True)
-    writer = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    writer = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f'[{self.pk}] {self.title} :: {self.student}'

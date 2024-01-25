@@ -119,6 +119,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'single_pages.CustomUser'
 
 
 # Password validation

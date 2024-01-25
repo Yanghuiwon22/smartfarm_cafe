@@ -56,16 +56,17 @@ def custom_login(request):
     else:
         return render(request, 'single_pages/login.html')
 
-
 @require_http_methods(['GET', 'POST'])
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-
             user = form.save()
-            auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
+            auth_login(request, user)
             return redirect('smartfarm_landing')
+
+
     else:
         form = CustomUserCreationForm()
     context = {

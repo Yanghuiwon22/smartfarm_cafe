@@ -4,6 +4,7 @@ import uuid
 from datetime import datetime
 from multiselectfield import MultiSelectField
 from messaging.models import Message
+from softeng_2023_prj import settings
 
 def reserve_upload_to(instance, filename):
     instance.sender_username = instance.sender.username
@@ -17,10 +18,10 @@ def reserve_upload_to(instance, filename):
 
 # Create your models here.
 class ReserveMeal(models.Model):
-    sender = models.ForeignKey(User, related_name='sent_reserve', on_delete=models.CASCADE)
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_reserve', on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    receiver = models.ForeignKey(User, related_name='received_reserve', null=True, on_delete=models.CASCADE)
+    receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='received_reserve', null=True, on_delete=models.CASCADE)
     timetable = models.ImageField(upload_to=reserve_upload_to)
     content = models.TextField()
 
