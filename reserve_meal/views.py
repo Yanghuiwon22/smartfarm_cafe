@@ -1,10 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from messaging.models import ReserveMealMessage
 from .models import ReserveMeal
 from itertools import chain
 from django.views.generic import CreateView,DetailView
-from django.urls import reverse_lazy
 from messaging.views import MessageForm
 
 # Create your views here.
@@ -14,7 +13,7 @@ class ReserveMealDetail(DetailView):
 
 
 def mypage_meal(request):
-    sent_meals = ReserveMeal.objects.filter(sender=request.user).order_by('-timestamp')
+    sent_meals = ReserveMealMessage.objects.filter(sender=request.user).order_by('-timestamp')
     received_meals = ReserveMeal.objects.filter(receiver=request.user).order_by('-timestamp')
 
     all_meals = list(chain(sent_meals, received_meals))
@@ -23,7 +22,7 @@ def mypage_meal(request):
                   { 'all_meals':all_meals})
 @login_required
 def reserve_list(request):
-    all_meals = ReserveMeal.objects.all().order_by('-timestamp')
+    all_meals = ReserveMealMessage.objects.all().order_by('-timestamp')
     # all_meals = ReserveMeal
 
     return render(request, 'reserve_meal/reservemeal_list.html',

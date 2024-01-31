@@ -24,9 +24,9 @@ class Category(models.Model):
 
 # 게시글 내용
 class BookStore(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    publisher = models.CharField(max_length=100)
+    title = models.CharField(max_length=100,null=True, blank=True,)
+    author = models.CharField(max_length=100,null=True, blank=True,)
+    publisher = models.CharField(max_length=100,null=True, blank=True,)
     price_set = models.CharField(max_length=100)
     price = models.CharField(max_length=100)
     isbn = models.CharField(max_length=13, null=True, blank=True, help_text="'-'를 뺀 숫자만을 입력해주세요")
@@ -52,7 +52,6 @@ class BookStore(models.Model):
         ('필기(볼펜/형광펜)', '페이지 훼손'),
     ]
     status = MultiSelectField(max_length=100, choices=status_opt)
-
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, blank=True)
 
 

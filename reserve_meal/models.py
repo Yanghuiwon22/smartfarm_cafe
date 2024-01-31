@@ -5,6 +5,9 @@ from datetime import datetime
 from multiselectfield import MultiSelectField
 from messaging.models import Message
 from softeng_2023_prj import settings
+from django.contrib.auth import get_user_model
+
+# User = get_user_model()
 
 def reserve_upload_to(instance, filename):
     instance.sender_username = instance.sender.username

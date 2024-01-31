@@ -1,12 +1,15 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login as auth_login
+from django.contrib.auth.hashers import check_password
+
+
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.views.decorators.http import require_http_methods
 from django.contrib import messages
-from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import User
-from django.contrib.auth import login as auth_login
+
 
 
 

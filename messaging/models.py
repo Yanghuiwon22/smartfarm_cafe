@@ -21,5 +21,10 @@ class Message(models.Model):
     def get_absolute_url(self):
         return f'/messaging/{self.user.id}/'
 
-    def get_room(self):
-        return
+
+
+class ReserveMealMessage(Message):
+    accept_reject = models.BooleanField(blank=True, null=True)
+
+    def __str__(self):
+        return f"From {self.sender} to {self.receiver} : {self.title}"

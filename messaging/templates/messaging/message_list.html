@@ -90,7 +90,7 @@
 
                                                 <div style="display: flex">
                                                     <div style="display: flex; padding-right: 10px">
-                                                        {% if message.anonymous %}
+                                                        {% if message.anonymous and message.receiver == request.user %}
                                                             <div class="messaging-select-right d-grid gap-2 d-md-flex justify-content-md-end">
                                                                 <div class="pricing pricing-item" style="padding: 5px">
                                                                     <button

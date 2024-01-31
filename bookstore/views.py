@@ -3,8 +3,9 @@ from django.views.generic import ListView, DetailView, CreateView
 from bookstore.models import BookStore, Category
 from django.contrib.auth.mixins import LoginRequiredMixin
 from messaging.views import MessageForm
-import pandas as pd
+from django.http import JsonResponse
 import requests
+import json
 
 
 
@@ -34,13 +35,20 @@ class BookForm_Form(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         current_user = self.request.user
+        print(f'request : {self.request}')
+        print(f'GET params: {self.request.GET}')
+        print(f'POST params: {self.request.POST}')
         if current_user.is_authenticated:
             form.instance.writer = current_user
 
-            kwd = requests.GET.get("kwd")
+            kwd = self.request.GET.get("kwd")
+            print(f'kwd : {kwd}')
             if kwd:
-                form.cleaned_data['title'] = get_book_info(kwd).get('title', '')
-                form.cleaned_data['author'] = get_book_info(kwd).get('author', '')
+                form.cleaned_data['title'] = get_book_info(self.request, kwd).get('title', '')
+                form.cleaned_data['author'] = get_book_info(self.request, kwd).get('author', '')
+                form.cleaned_data['publisher'] = get_book_info(self.request, kwd).get('publisher', '')
+
+
 
             return super(BookForm_Form, self).form_valid(form)
 
@@ -72,6 +80,8 @@ def get_book_info(request, kwd):
     else:
         data = '오류'
 
+
+    print(f"get_book_info : { JsonResponse(data, json_dumps_params={'ensure_ascii': False}, status=200)}")
     return JsonResponse(data, json_dumps_params={'ensure_ascii': False}, status=200)
 
 

@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import MessageForm
 from .models import Message
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from itertools import chain
+# from softeng_2023_prj import settings
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 # new_messaing -> 폼에서 작성 후 전송누르면 실행 (DB에 저장)
 def create_message(request):
