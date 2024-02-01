@@ -22,17 +22,18 @@ def mypage_meal(request):
                   { 'all_meals':all_meals})
 @login_required
 def reserve_list(request):
-    all_meals = ReserveMealMessage.objects.all().order_by('-timestamp')
+    all_meals = ReserveMeal.objects.all().order_by('-timestamp')
     # all_meals = ReserveMeal
 
+    print(ReserveMealMessage.objects.all())
     return render(request, 'reserve_meal/reservemeal_list.html',
                   {'all_meals': all_meals})
 
 
 def send_reserve_message(request, pk):
-    meals = ReserveMeal.objects.filter(pk=pk).first()
+    meals = ReserveMealMessage.objects.filter(pk=pk).first()
 
-
+    print(meals)
     if request.method == 'POST':
         form = MessageForm(request.POST, hide_receiver=True)
         if form.is_valid():
