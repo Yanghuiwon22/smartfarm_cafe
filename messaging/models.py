@@ -27,4 +27,9 @@ class ReserveMealMessage(Message):
     accept_reject = models.BooleanField(blank=True, null=True)
 
     def __str__(self):
-        return f"From {self.sender} to {self.receiver} : {self.title}"
+        self.sender = super().sender
+        self.content = super().content
+        return f"From {self.sender} to {self.receiver} : {self.content}"
+
+    def get_absolute_url(self):
+        return f'/messaging/{self.user.id}/'

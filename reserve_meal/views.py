@@ -5,7 +5,10 @@ from .models import ReserveMeal
 from itertools import chain
 from django.views.generic import CreateView,DetailView
 from messaging.views import MessageForm
+from messaging.forms import ReserveMealMessageForm
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 # Create your views here.
 class ReserveMealDetail(DetailView):
     model = ReserveMeal
@@ -14,12 +17,13 @@ class ReserveMealDetail(DetailView):
 
 def mypage_meal(request):
     sent_meals = ReserveMealMessage.objects.filter(sender=request.user).order_by('-timestamp')
-    received_meals = ReserveMeal.objects.filter(receiver=request.user).order_by('-timestamp')
+    received_meals = ReserveMealMessage.objects.filter(receiver=request.user).order_by('-timestamp')
+    all_users = User.objects.exclude(pk=request.user.pk)
 
     all_meals = list(chain(sent_meals, received_meals))
 
     return render(request, 'reserve_meal/mypage_meal.html',
-                  { 'all_meals':all_meals})
+                  { 'all_meals':all_meals, 'all_users': all_users,})
 @login_required
 def reserve_list(request):
     all_meals = ReserveMeal.objects.all().order_by('-timestamp')
@@ -31,11 +35,14 @@ def reserve_list(request):
 
 
 def send_reserve_message(request, pk):
-    meals = ReserveMealMessage.objects.filter(pk=pk).first()
+    meals = ReserveMeal.objects.filter(pk=pk).first()
 
-    print(meals)
     if request.method == 'POST':
-        form = MessageForm(request.POST, hide_receiver=True)
+        form = ReserveMealMessageForm(request.POST)
+
+        # form.sender = request.user
+        # form.receiver = meals.sender
+
         if form.is_valid():
             new_message = form.save(commit=False)
             new_message.sender = request.user
@@ -51,17 +58,6 @@ def send_reserve_message(request, pk):
                     'meals' : meals,
                     'form' : form
                   })
-
-class ReserveMeal_Form(CreateView):
-    model = ReserveMeal
-    fields = ['receiver','timetable','content', 'anonymous']
-
-    def form_valid(self, form):
-        current_user = self.request.user
-        if current_user.is_authenticated:
-            form.instance.sender = current_user
-            form.anonymous = False
-            return super(ReserveMeal_Form, self).form_valid(form)
 
 class ReserveMeal_Form_Secret(CreateView):
     model = ReserveMeal

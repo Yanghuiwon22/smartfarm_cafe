@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.reserve_list, name='reserve_list'),
 
     # 밥약 작성폼
-    path('reserve_form/', views.ReserveMeal_Form.as_view(), name='reserve_regi'),
+    # path('reserve_form/', views.ReserveMeal_Form.as_view(), name='reserve_regi'),
     path('reserve_form_secret/', views.ReserveMeal_Form_Secret.as_view(), name='reserve_regi_secret'),
 
     # 메세지

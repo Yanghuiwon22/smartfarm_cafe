@@ -51,36 +51,70 @@
                         </div>
                     </div>
 
-                    {% regroup all_meals|dictsortreversed:'timestamp' by user as all_meals_group %}
-
+                    {% regroup all_meals|dictsortreversed:'timestamp' by user as all_messages_group %}
                     {# 쪽지 기능 #}
-                    {% for group in all_meals_group %}
-                        {% for meal in group.list %}
-                            {% if request.user == meal.receiver or request.user == meal.sender %}
-                                <div class="posts-list">
-                                    <article>
-                                        {#                                    <article><a href="{% url '' pk=meal.pk %}">#}
-                                        <div class="fist-list" style="display: flex; justify-content: space-between;">
-                                            <div style="display: flex">
-                                                <h2 class="title">
-                                                    <div><a href="{{ meal.get_absolute_url }}">{{ user }}</a></div>
-                                                </h2>
+                    {% for group in all_messages_group %}
+                        {% for message in group.list %}
+                            {% for user in all_users %}
+                                {% if not user == message.receiver and not user == message.sender %}
+                                {% else %}
+                                    <div class="posts-list">
+                                        <article>
+                                            <div class="fist-list"
+                                                 style="display: flex; justify-content: space-between;">
+                                                <div style="display: flex">
+                                                    <p class="title"><a
+                                                            href="/messaging/{{ user.id }}/">
+                                                        {% if not message.anonymous %}
+                                                            {{ user }}
+                                                        {% else %}
+                                                            익명
+                                                        {% endif %}
+                                                    </a>
+                                                    </p>
+                                                    {% if message.sender == request.user %}
 
-                                                {% if meal.sender == request.user %}
-                                                    <p>sent</p>
-                                                {% elif meal.receiver == request.user %}
-                                                    <p>received</p>
+                                                        <p>보낸 메세지</p>
+                                                    {% elif message.receiver == request.user %}
+                                                        <p>받은 메세지</p>
+                                                    {% endif %}
+
+
+                                                </div>
+
+                                                <div style="display: flex">
+                                                    <div style="display: flex; padding-right: 10px">
+                                                        {% if message.anonymous and message.receiver == request.user %}
+                                                            <div class="messaging-select-right d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <div class="pricing pricing-item" style="padding: 5px">
+                                                                    <button
+                                                                            class="buy-btn">수락
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="messaging-select-right d-grid gap-2 d-md-flex justify-content-md-end">
+                                                                <div class="pricing pricing-item" style="padding: 5px">
+                                                                    <button type="button"
+                                                                            class="buy-btn">거절
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        {% endif %}
+                                                    </div>
+                                                    <p>{{ message.timestamp }}</p>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                {% if request.user in  message.sender or message.receiver %}
+                                                    <p>{{ message.content }}</p>
                                                 {% endif %}
                                             </div>
-                                            <p>{{ meal.timestamp }}</p>
-                                        </div>
-
-                                        {% if request.user == meal.sender or request.user == meal.receiver %}
-                                            <p>{{ meal.content }}</p>
-                                        {% endif %}
-                                    </article>
-                                </div>
-                            {% endif %}
+                                        </article>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
                         {% endfor %}
                     {% endfor %}
                 </div>

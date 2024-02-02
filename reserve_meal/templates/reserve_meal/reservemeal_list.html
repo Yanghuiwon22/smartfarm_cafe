@@ -5,10 +5,20 @@
 
     <style>
         .send_message_button {
-display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .correction-button {
+            float: right;
+
         }
     </style>
 
@@ -64,16 +74,23 @@ display: flex;
                                     <article>
                                         <h4><strong>{{ meals.title }}</strong></h4>
                                         <hr>
+
                                         선호 음식 : {{ meals.food }}<br><br>
                                         {{ meals.content }}<br>
 
-                                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                            <div class="pricing pricing-item send_message_button" style="padding: 15px">
-                                                <a href="{% url 'send_reserve_message' pk=meals.id %}" class="buy-btn">
-                                                    신청하기</a>
-                                            </div>
-                                        </div>
+                                        {% if meals.sender == request.user %}
+                                            <button class="correction-button">수정</button>
 
+                                        {% else %}
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                <div class="pricing pricing-item send_message_button"
+                                                     style="padding: 15px">
+                                                    <a href="{% url 'send_reserve_message' pk=meals.id %}"
+                                                       class="buy-btn">
+                                                        신청하기</a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     </article>
                                 {% endif %}
                             </div><!-- End post list item -->
