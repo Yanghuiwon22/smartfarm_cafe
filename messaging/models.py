@@ -8,8 +8,10 @@ class Message(models.Model):
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='received_messages', on_delete=models.CASCADE)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    anonymous = models.BooleanField(default=False)
-    room = f'{sender}_{receiver}'
+    # anonymous = models.BooleanField(default=False)
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return f"From {self.sender} to {self.receiver} : {self.content}"
@@ -23,8 +25,11 @@ class Message(models.Model):
 
 
 
+
 class ReserveMealMessage(Message):
     accept_reject = models.BooleanField(blank=True, null=True)
+    anonymous = models.BooleanField(default=False)
+
 
     def __str__(self):
         self.sender = super().sender
@@ -33,3 +38,6 @@ class ReserveMealMessage(Message):
 
     def get_absolute_url(self):
         return f'/messaging/{self.user.id}/'
+
+class BookstoreMessage(Message):
+    pass
